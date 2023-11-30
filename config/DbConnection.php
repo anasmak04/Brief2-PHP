@@ -16,6 +16,8 @@ $password   = $_ENV["DB_PASSWORD"];
 $connexion = mysqli_connect("localhost", "root", "", "agency");
 if (!$connexion) {
     die("faild to connect to database: " . mysqli_connect_error());
-} else {
-    echo "connected succesfully";
-}
+} 
+
+// else {
+//     echo "connected succesfully";
+// }
