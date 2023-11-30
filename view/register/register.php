@@ -4,24 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <!-- js link -->
+    <script src="../../public/js/script.js" defer></script>
+    <title>Login</title>
 </head>
 
 <body>
     <?php require_once "../../controller/register/register.php"; ?>
 
-    <form action="register.php" method="post">
-        <input type="text" name="firstName" placeholder="Enter your firstName"><br>
-        <input type="text" name="lastName" placeholder="Enter your lastName"><br>
-        <input type="text" name="email" required placeholder="Enter your Email"><br>
-        <input type="password" name="password" required placeholder="Enter your password"><br>
-        <input type="password" name="confirmPassword" required placeholder="confrm your password"><br>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="register.php" method="post" class="sign-in-form">
+                    <h2 class="title">Register</h2>
+                    <div class="input-field">
+                        <lord-icon src="https://cdn.lordicon.com/zfmcashd.json" trigger="in" delay="2000" style="width:60px;height:30px">
+                        </lord-icon>
+                        <input type="text" name="firstName" placeholder="first Name" />
+                    </div>
+                    <div class="input-field">
+                        <lord-icon src="https://cdn.lordicon.com/zfmcashd.json" trigger="in" delay="2000" style="width:60px;height:30px">
+                        </lord-icon>
+                        <input type="text" name="lastName" placeholder="last Name" />
+                    </div>
+                    <div class="input-field">
+                        <lord-icon src="https://cdn.lordicon.com/wwpzpqta.json" trigger="in" delay="2000" style="width:60px;height:30px">
+                        </lord-icon>
+                        <input type="email" name="email" placeholder="Email" />
+                    </div>
+                    <div class="input-field">
+                        <lord-icon src="https://cdn.lordicon.com/ccrgnftl.json" trigger="in" delay="2000" style="width:60px;height:30px">
+                        </lord-icon>
+                        <input type="password" name="password" placeholder="password" />
+                    </div>
 
-        <button class="registerbtn" type="submit" name="submit">Register</button>
-        <hr>
+                    <div class="input-field">
+                        <lord-icon src="https://cdn.lordicon.com/ccrgnftl.json" trigger="in" delay="2000" style="width:60px;height:30px">
+                        </lord-icon>
+                        <input type="password" name="confirmPassword" placeholder="confirm your password" />
+                    </div>
+                    <button type="submit" class="btn solid" name="submit">save</button>
 
-        <p>Already registered? <a href="login.php">Login</a></p>
-    </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Welcome to the agency store</h3>
+                    <p>
+                        SPECIALIZES IN THE CREATION OF WEBSITES & APPLICATIONS, DIGITAL MARKETING, CONSULTING, EVENTS, PRODUCTION OF ADVERTISING VIDEOS, GRAPHIC DESIGN, 3D ANIMATION.
+
+
+                    </p>
+                    <button class="btn transparent" id="sign-up-btn">
+                        Register
+                    </button>
+                </div>
+                <img src="img/log.svg" class="image" alt="" />
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
 </body>
 
 </html>
