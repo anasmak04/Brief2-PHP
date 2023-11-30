@@ -1,6 +1,7 @@
 <?php
 
-require  '../../vendor/autoload.php';
+include __DIR__ . '/../vendor/autoload.php';
+
 
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
@@ -13,7 +14,7 @@ $password   = $_ENV["DB_PASSWORD"];
 
 // echo $_ENV["DB_SERVERNAME"];
 
-$connexion = mysqli_connect("localhost", "root", "", "agency");
+$connexion = mysqli_connect($serverName,$userName, $password, $name);
 if (!$connexion) {
     die("faild to connect to database: " . mysqli_connect_error());
 } 

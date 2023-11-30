@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <?php require_once "../../controller/login/login.php"; ?>
+    <?php include "../../controller/login/login.php"; ?>
 
     <div class="container">
         <div class="forms-container">

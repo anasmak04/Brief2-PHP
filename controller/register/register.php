@@ -1,6 +1,6 @@
 <?php
 
-require_once "../../config/DbConnection.php";
+include  __DIR__ . "../../../../../htdocs/agency/config/DbConnection.php";
 
 session_start();
 if (isset($_POST['submit'])) {
