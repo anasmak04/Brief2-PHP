@@ -1,3 +1,4 @@
+<?php include "../../controller/Product/search.php" ?>
 <?php include "../../controller/Product/show.php" ?>
 
 <!DOCTYPE html>
@@ -7,15 +8,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css link -->
-    <link rel="stylesheet" href="../../public/css/sidebar.css">
 
     <title>Document</title>
+
+    <link rel="stylesheet" href="../../public/css/sidebar.css">
+
 </head>
 
 <style>
     .add {
         text-decoration: none;
         padding-top: 5px;
+    }
+
+    .delete {
+        background-color: #101827;
+        ;
+        padding: 8px 20px;
+        color: white;
+        text-decoration: none;
+        border: #1d283c 1px solid;
+        margin: 5px;
+    }
+
+    .update {
+        background-color: #101827;
+        ;
+        padding: 8px 20px;
+        text-decoration: none;
+        color: white;
+        border: #1d283c 1px solid;
     }
 </style>
 
@@ -104,10 +126,11 @@
             </div>
             <div class="app-content-actions">
 
-                <form action="search.php" method="post">
-                    <input class="search-bar" placeholder="Search..." type="text">
-                    <button type="submit" name="search">Search</button>
+                <form action="" method="get">
+                    <input class="search-bar" name="nom" placeholder="Search..." type="text">
+                    <button type="submit">Search</button>
                 </form>
+
 
                 <div class="app-content-actions-wrapper">
 
@@ -115,7 +138,7 @@
             </div>
 
             <div class="products-area-wrapper tableView">
-
+    
                 <div class="products-header">
 
                     <div class="product-cell image">
@@ -163,7 +186,7 @@
                 <?php
 
                 if ($result->num_rows > 0) {
-
+                    
                     while ($row = $result->fetch_assoc()) {
                 ?>
                         <div class="products-row">
@@ -179,8 +202,8 @@
                             <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["id_team"]; ?></div>
                             <div class="product-cell price"><span class="cell-label">Price:</span><?= $row["price"]; ?></div>
                             <div class="product-cell price"><span class="cell-label">Price:</span>
-                                <a href="">delete</a>
-                                <a href="">update</a>
+                                <a href="delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('Are you sure do you want to delete this user?')" class="delete">delete</a>
+                                <a href="update.php?id=<?= $row["id"]; ?>" class="update">update</a>
                             </div>
                         </div>
                 <?php
