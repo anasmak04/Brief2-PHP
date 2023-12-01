@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li class="sidebar-list-item active">
-                    <a href="#">
+                    <a href="../product/show.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
                             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                             <line x1="3" y1="6" x2="21" y2="6" />
@@ -72,7 +72,7 @@
                     </a>
                 </li>
                 <li class="sidebar-list-item">
-                    <a href="../blog/show.php">
+                    <a href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart">
                             <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
                             <path d="M22 12A10 10 0 0 0 12 2v10z" />
@@ -122,7 +122,7 @@
                         <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
                     </svg>
                 </button>
-                <a href="./add.php" class="add app-content-headerButton">Add Product</a>
+                <a href="../blog/add.php" class="add app-content-headerButton">Add Blog</a>
             </div>
             <div class="app-content-actions">
 
@@ -142,14 +142,14 @@
                 <div class="products-header">
 
                     <div class="product-cell image">
-                        Id Produit
+                        Id Blog
                         <button class="sort-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
                                 <path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
                             </svg>
                         </button>
                     </div>
-                    <div class="product-cell category">Nom Produit<button class="sort-button">
+                    <div class="product-cell category">Nom Blog<button class="sort-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
                                 <path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
                             </svg>
@@ -166,7 +166,7 @@
                                 <path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
                             </svg>
                         </button></div>
-                    <div class="product-cell stock">Team id<button class="sort-button">
+                    <div class="product-cell stock">Author<button class="sort-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
                                 <path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
                             </svg>
@@ -183,37 +183,25 @@
                         </button></div>
 
                 </div>
-                <?php
-
-                if ($result->num_rows > 0) {
-                    
-                    while ($row = $result->fetch_assoc()) {
-                ?>
+              
                         <div class="products-row">
                             <div class="product-cell image">
-                                <span><?= $row["id"] ?></span>
+                                <span>1</span>
                             </div>
-                            <div class="product-cell category"><span class="cell-label">Category:</span><?= $row["nom"]; ?></div>
+                            <div class="product-cell category"><span class="cell-label">Category:</span>1</div>
                             <div class="product-cell status-cell">
                                 <span class="cell-label">Status:</span>
-                                <span class="status disabled"><?= $row["status"]; ?></span>
+                                <span class="status disabled"></span>
                             </div>
-                            <div class="product-cell sales"><span class="cell-label">Sales:</span><?= $row["Description"]; ?></div>
-                            <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["id_team"]; ?></div>
-                            <div class="product-cell price"><span class="cell-label">Price:</span><?= $row["price"]; ?></div>
+                            <div class="product-cell sales"><span class="cell-label">Sales:</span></div>
+                            <div class="product-cell stock"><span class="cell-label">Stock:</span></div>
+                            <div class="product-cell price"><span class="cell-label">Price:</span></div>
                             <div class="product-cell price"><span class="cell-label">Price:</span>
-                                <a href="delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('Are you sure do you want to delete this user?')" class="delete">delete</a>
-                                <a href="update.php?id=<?= $row["id"]; ?>" class="update">update</a>
+                                <a href="delete.php onclick="return confirm('Are you sure do you want to delete this user?')" class="delete">delete</a>
+                                <a href="update.php" class="update">update</a>
                             </div>
                         </div>
-                <?php
-                    }
-                } else {
-                    echo "no data";
-                }
-
-
-                ?>
+             
             </div>
         </div>
     </div>
