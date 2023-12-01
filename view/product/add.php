@@ -13,10 +13,10 @@
     <?php include "../../controller/Product/add.php" ?>
     <form action="add.php" method="post">
         <input type="text" name="nom" placeholder="nom">
-        <input type="number" name="id_category" placeholder="id_category">
+        <input type="text" name="categoryNom" placeholder="category name">
         <input type="text" name="Description" placeholder="Description">
         <input type="text" name="status" placeholder="status">
-        <input type="number" name="id_team" placeholder="id_team">
+        <input type="text" name="teamNom" placeholder="team name">
         <input type="price" name="price" placeholder="price">
         <button type="submit" name="submit">save</button>
     </form>
