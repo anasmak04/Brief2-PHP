@@ -1,5 +1,5 @@
 <?php include "../../controller/Product/search.php" ?>
-<?php include "../../controller/Product/show.php" ?>
+<?php include "../../controller/blog/show.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -138,7 +138,7 @@
             </div>
 
             <div class="products-area-wrapper tableView">
-    
+
                 <div class="products-header">
 
                     <div class="product-cell image">
@@ -183,25 +183,40 @@
                         </button></div>
 
                 </div>
-              
+
+                <?php
+
+                if ($result->num_rows > 0) {
+
+                    while ($row = $result->fetch_assoc()) {
+                ?>
                         <div class="products-row">
                             <div class="product-cell image">
-                                <span>1</span>
+                                <span><?= $row["id"];  ?></span>
                             </div>
-                            <div class="product-cell category"><span class="cell-label">Category:</span>1</div>
+                            <div class="product-cell category"><span class="cell-label">Category:</span><?= $row["nom"];  ?></div>
                             <div class="product-cell status-cell">
                                 <span class="cell-label">Status:</span>
-                                <span class="status disabled"></span>
+                                <span class="status disabled"><?= $row["status"];  ?></span>
                             </div>
-                            <div class="product-cell sales"><span class="cell-label">Sales:</span></div>
-                            <div class="product-cell stock"><span class="cell-label">Stock:</span></div>
-                            <div class="product-cell price"><span class="cell-label">Price:</span></div>
+                            <div class="product-cell sales"><span class="cell-label">Sales:</span><?= $row["description"];  ?></div>
+                            <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["id_user"];  ?></div>
+                            <div class="product-cell price"><span class="cell-label">Price:</span><?= $row["Price"]; ?></div>
                             <div class="product-cell price"><span class="cell-label">Price:</span>
-                                <a href="delete.php onclick="return confirm('Are you sure do you want to delete this user?')" class="delete">delete</a>
-                                <a href="update.php" class="update">update</a>
+                                <a href="delete.php?id=<?= $row["id"] ?>" onclick=" return confirm('Are you sure do you want to delete this user?')" class="delete">delete</a>
+                                <a href="update.php?id=<?= $row["id"] ?>" class="update">update</a>
                             </div>
                         </div>
-             
+
+                <?php
+                    }
+                } else {
+                    echo "no data";
+                }
+
+
+                ?>
+
             </div>
         </div>
     </div>

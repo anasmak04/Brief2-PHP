@@ -1,0 +1,1 @@
+<?php include "../../controller/blog/delete.php"; ?>
