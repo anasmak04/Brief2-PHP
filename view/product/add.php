@@ -8,16 +8,30 @@
     <title>Document</title>
 </head>
 
-
 <body>
-    <?php include "../../controller/Product/add.php" ?>
+    <?php include "../../controller/Product/add.php";
+    include "../../controller/Product/show.php"
+    ?>
     <form action="add.php" method="post">
         <input type="text" name="nom" placeholder="nom">
-        <input type="text" name="categoryNom" placeholder="category name">
+        <select name="categoryNom" id="categoryNom">
+            <option value="" selected disabled>Select Category</option>
+            <?php
+            foreach ($categories as $category) {
+                echo "<option value='" . $category . "'>" . $category . "</option>";
+            }
+            ?>
+        </select>
         <input type="text" name="Description" placeholder="Description">
         <input type="text" name="status" placeholder="status">
-        <input type="text" name="teamNom" placeholder="team name">
-        <input type="price" name="price" placeholder="price">
+        <select name="teamNom" id="teamNom">
+            <option value="" selected disabled>Select Team</option>
+            <?php
+            foreach ($teams as $team) {
+                echo "<option value='" . $team . "'>" . $team . "</option>";
+            }
+            ?>
+        </select>        <input type="price" name="price" placeholder="price">
         <button type="submit" name="submit">save</button>
     </form>
 </body>

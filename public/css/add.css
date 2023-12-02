@@ -34,7 +34,7 @@ form {
 input[type="text"],
 input[type="number"],
 input[type="price"],
-button {
+button{
   margin: 10px;
   width: 500px;
   height: 40px;
@@ -58,3 +58,6 @@ button {
 button:hover {
   background-color: var(--action-color-hover);
 }
+
+
+
