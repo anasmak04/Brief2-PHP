@@ -28,3 +28,6 @@ $sql = "UPDATE `product` SET `nom`=?, `Description`=?, `id_category`=?, `status`
         echo "Error Description: " . $connexion->error;
     }
 }
+
+
+?>

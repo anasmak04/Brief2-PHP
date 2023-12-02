@@ -8,35 +8,28 @@
     <title>Document</title>
 </head>
 
-
 <body>
-    <?php include "../../controller/Blog/update.php";
-        include "../../model/Blog.php";
-    ?>
+    <?php include "../../controller/Blog/update.php"; ?>
 
     <?php
-            if (isset($_GET['id'])) {
-                $produit_id =   $_GET['id'];
-                $sql = GetAllBlogs();
-                $result = $connexion->query($sql);
-
-                $result->bind_param("i", $blog_id);
-                $result->execute();
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $nom = $_POST["nom"];
-                        $status = $_POST['status'];
-                        $description = $_POST['description'];
-                        $id_user = $_POST['id_user'];
-                        $price = $_POST['price'];
-                        
-                    }
-                }
+    if (isset($_GET['id'])) {
+        $id_blog = $_GET['id'];
+        $sql = "SELECT * FROM `blog` WHERE `id`='$id_blog'";
+        $result = $connexion->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $nom = $row["nom"];
+                $status = $row['status'];
+                $description = $row['description'];
+                $id_user = $row['id_user'];
+                $price = $row['Price'];
             }
-            ?>
-  
+        }
+    }
+    ?>
 
     <form action="update.php" method="post">
+        <input type="hidden" name="id" value="<?= $id_blog; ?>"> <!-- Hidden input for ID -->
         <input type="text" name="nom" placeholder="nom" value="<?= $nom; ?>">
         <input type="text" name="status" placeholder="status" value="<?= $status; ?>">
         <input type="text" name="description" placeholder="Description" value="<?= $description; ?>">

@@ -43,6 +43,12 @@
                     <div class="input-field">
                         <lord-icon src="https://cdn.lordicon.com/ccrgnftl.json" trigger="in" delay="2000" style="width:60px;height:30px">
                         </lord-icon>
+                        <input type="number" name="id_role" placeholder="id_role" />
+                    </div>
+
+                    <div class="input-field">
+                        <lord-icon src="https://cdn.lordicon.com/ccrgnftl.json" trigger="in" delay="2000" style="width:60px;height:30px">
+                        </lord-icon>
                         <input type="password" name="confirmPassword" placeholder="confirm your password" />
                     </div>
                     <button type="submit" class="btn solid" name="submit">save</button>

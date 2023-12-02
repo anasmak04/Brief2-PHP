@@ -1,4 +1,3 @@
-<?php include "../../controller/Product/search.php" ?>
 <?php include "../../controller/blog/show.php" ?>
 
 <!DOCTYPE html>

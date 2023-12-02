@@ -17,7 +17,7 @@ if (isset($_POST["submit"])) {
     $stmt = $connexion->prepare($sql);
 
     if ($stmt) {
-        $stmt->bind_param("sssis", $nom, $status, $description, $id_user, $price);
+        $stmt->bind_param("sssii", $nom, $status, $description, $id_user, $price);
         if ($stmt->execute()) {
             echo "Insert done successfully!";
             header("location:show.php");
