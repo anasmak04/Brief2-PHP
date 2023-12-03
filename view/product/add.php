@@ -13,25 +13,12 @@
     include "../../controller/Product/show.php"
     ?>
     <form action="add.php" method="post">
-        <input type="text" name="nom" placeholder="nom">
-        <select name="categoryNom" id="categoryNom">
-            <option value="" selected disabled>Select Category</option>
-            <?php
-            foreach ($categories as $category) {
-                echo "<option value='" . $category . "'>" . $category . "</option>";
-            }
-            ?>
-        </select>
+       id_team <input type="text" name="nom" placeholder="nom">
+       <input type="number" name="id_category" placeholder="id_category">
         <input type="text" name="Description" placeholder="Description">
         <input type="text" name="status" placeholder="status">
-        <select name="teamNom" id="teamNom">
-            <option value="" selected disabled>Select Team</option>
-            <?php
-            foreach ($teams as $team) {
-                echo "<option value='" . $team . "'>" . $team . "</option>";
-            }
-            ?>
-        </select>        <input type="price" name="price" placeholder="price">
+        <input type="number" name="id_team" placeholder="id_team">
+        <input type="price" name="price" placeholder="price">
         <button type="submit" name="submit">save</button>
     </form>
 </body>

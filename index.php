@@ -74,7 +74,7 @@
 
           </ul>
 
-          <button class="btn btn-primary">Get in touch</button>
+          <a href="./view/register/register.php" class="btn btn-primary">Register</a>
 
         </nav>
 
@@ -131,7 +131,7 @@
 
         <div class="about-content">
 
-            <h2 class="h2 section-title">What we do</h2>
+            <h2 style="color: black !important;" class="h2 section-title">What we do</h2>
 
             <p class="section-text">
                 Each time a digital asset is purchased or sold, Sequoir donates a percentage of the fees back into the
@@ -140,10 +140,12 @@
             </p>
 
             <div class="about-list-container">
-                <?php
+            <?php
                 include "./controller/Product/categoryName.php";
 
                 if ($result->num_rows > 0) {
+
+                  
                     while ($row = $result->fetch_assoc()) {
                 ?>
                         <div class="about-card">
@@ -151,11 +153,14 @@
                                 <ion-icon name="briefcase-outline"></ion-icon>
                             </div>
                             <h3 class="h3 card-title"><?= $row["category_name"]; ?></h3>
-                            <p class="card-text"><?= $row["product_name"]; ?></p>
+                            <p class="card-text">Name : <?= $row["product_name"]; ?></p>
+                            <p class="card-text">Description : <?= $row["product_description"]; ?></p>
+                            <p class="card-text">Price : <?= $row["product_price"]; ?></p>
                         </div>
                 <?php
                     }
                 } else {
+                  
                     echo "no data";
                 }
                 ?>
