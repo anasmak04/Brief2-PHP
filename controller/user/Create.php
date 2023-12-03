@@ -1,7 +1,7 @@
 <?php
 
 include  __DIR__ . "../../../../../htdocs/agency/config/DbConnection.php";
-
+include "../../model/user.php";
 session_start();
 if (isset($_POST['submit'])) {
 
@@ -11,26 +11,21 @@ if (isset($_POST['submit'])) {
     $id_role = $_POST['id_role'];
     $password = $_POST['password'];
 
-    if ($password !== $confirmPwd) {
-        echo "Password does not match. Please try again.";
-    } else {
-        $sql = "INSERT INTO `user` (`firstName`, `lastName`, `email`, `id_role`, `password`)
-                    VALUES (?, ?, ?, ?, ?)";
+        $sql = CreateUser();
 
         $stmt = $connexion->prepare($sql);
 
 
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
       
 
         
-        if ($stmt && $stmt->bind_param("sssis", $firstName, $lastName, $email, $id_role, $hashedPassword) && $stmt->execute()) {
+        if ($stmt && $stmt->bind_param("sssis", $firstName, $lastName, $email, $id_role, $password) && $stmt->execute()) {
             $_SESSION['email'] = $email;
             echo "Registration done successfully!";
-
+            header("location:show.php");
             echo "Email stored in session: " . $_SESSION['email'];
         } else {
             echo "Error Description: " . $connexion->error;
         }
-    }
+    
 }

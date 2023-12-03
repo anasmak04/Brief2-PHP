@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li class="sidebar-list-item active">
-                    <a href="#">
+                    <a href="../product/show.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag">
                             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                             <line x1="3" y1="6" x2="21" y2="6" />
@@ -115,14 +115,14 @@
         </div>
         <div class="app-content">
             <div class="app-content-header">
-                <h1 class="app-content-headerText">Products</h1>
+                <h1 class="app-content-headerText">Users</h1>
                 <button class="mode-switch" title="Switch Theme">
                     <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
                         <defs></defs>
                         <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
                     </svg>
                 </button>
-                <a href="./add.php" class="add app-content-headerButton">Add Product</a>
+                <a href="./add.php" class="add app-content-headerButton">Add user</a>
             </div>
             <div class="app-content-actions">
 
@@ -171,33 +171,37 @@
                         </button></div>
 
                 </div>
-                <?php
-
-                if ($result->num_rows > 0) {
-
-                    while ($row = $result->fetch_assoc()) {
-                ?>
-                        <div class="products-row">
-
-                            <div class="product-cell category"><span class="cell-label">Category:</span><?= $row["firstName"]; ?></div>
-                            <div class="product-cell status-cell">
-                                <span class="cell-label">Status:</span>
-                                <span class=""><?= $row["lastName"]; ?></span>
-                            </div>
-                            <div class="product-cell sales"><span class="cell-label">Sales:</span><?= $row["email"]; ?></div>
-                            <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["id_role"]; ?></div>
-                                <a href="delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('Are you sure do you want to delete this user?')" class="delete">delete</a>
-                                <a href="update.php?id=<?= $row["id"]; ?>" class="update">update</a>
-                            </div>
-                        </div>
-                <?php
-                    }
-                } else {
-                    echo "no data";
-                }
+              
 
 
-                ?>
+<?php
+
+if ($result->num_rows > 0) {
+
+    while ($row = $result->fetch_assoc()) {
+?>
+        <div class="products-row">
+
+            <div class="product-cell category"><span class="cell-label">Category:</span><?= $row["firstName"]; ?></div>
+            <div class="product-cell status-cell">
+                <span class="cell-label">Status:</span>
+                <span class="status disabled"><?= $row["lastName"]; ?></span>
+            </div>
+            <div class="product-cell sales"><span class="cell-label">Sales:</span><?= $row["email"]; ?></div>
+            <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["id_role"]; ?></div>
+            <div class="product-cell price"><span class="cell-label">Price:</span>
+                <a href="delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('Are you sure do you want to delete this user?')" class="delete">delete</a>
+                <a href="update.php?id=<?= $row["id"]; ?>" class="update">update</a>
+            </div>
+        </div>
+<?php
+    }
+} else {
+    echo "no data";
+}
+
+
+?>
             </div>
         </div>
     </div>

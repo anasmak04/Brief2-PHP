@@ -1,5 +1,6 @@
 <?php
 include  __DIR__ . "../../../../../htdocs/agency/config/DbConnection.php";
+include "../../model/user.php";
 
 if (isset($_POST["submit"])) {
     $id = $_POST["id"];
@@ -8,7 +9,7 @@ if (isset($_POST["submit"])) {
     $email = $_POST['email'];
     $id_role = $_POST['id_role'];
 
-    $sql = "UPDATE `user` SET `firstName`=?, `lastName`=?, `email`=?, `id_role`=? WHERE id = ?";
+    $sql = UpdateBlog();
     $stmt = $connexion->prepare($sql);
 
     if ($stmt) {
@@ -16,7 +17,7 @@ if (isset($_POST["submit"])) {
         if ($stmt->execute()) {
             echo "Update done successfully!";
             header("location:show.php");
-            exit(); // Ensure to stop script execution after redirection
+            exit(); 
         } else {
             echo "Error Description: " . $stmt->error;
         }

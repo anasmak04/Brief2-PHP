@@ -2,7 +2,7 @@
 include  __DIR__ . "../../../../../htdocs/agency/config/DbConnection.php";
 include "../../model/user.php";
 
-$sql = "SELECT * FROM `user` ";
+$sql = GetUsers();
 $result = $connexion->query($sql);
 
 

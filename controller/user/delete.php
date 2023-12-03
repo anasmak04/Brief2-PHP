@@ -7,7 +7,7 @@ include "../../model/user.php";
 
 if (isset($_GET['id'])) {
     $id_user =  $_GET['id'];
-    $sql = "DELETE FROM `user` WHERE id = ?";
+    $sql = DeleteUser();
 
     $stmt = $connexion->prepare($sql);
 
