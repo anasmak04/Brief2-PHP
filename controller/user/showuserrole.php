@@ -1,9 +1,8 @@
 <?php
 include  __DIR__ . "../../../../../htdocs/agency/config/DbConnection.php";
-include "../../model/user.php";
+include "../../services/user.php";
 
-$sql = JoinUserRole();
-$result = $connexion->query($sql);
+$result=JoinUserRole($connexion);
 
 
 ?>

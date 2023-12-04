@@ -1,22 +1,7 @@
 <?php
 include __DIR__ . "../../../../../htdocs/agency/config/DbConnection.php";
-include "../../model/Blog.php";
+include "../../services/Blog.php";
 
-if (isset($_GET['id'])) {
-    $blog_id = $_GET['id'];
-    
-    $sql = DeleteBlog();
-    
-    $stmt = $connexion->prepare($sql);
+DeleteBlog($connexion);
 
-    $stmt->bind_param("i", $blog_id);
-
-
-    $stmt->execute();
-
-
-    $stmt->close();
-} else {
-    echo "No product ID provided for deletion.";
-}
 ?>

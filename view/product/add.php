@@ -10,7 +10,6 @@
 
 <body>
     <?php include "../../controller/Product/add.php";
-    include "../../controller/Product/show.php"
     ?>
     <form action="add.php" method="post">
        id_team <input type="text" name="nom" placeholder="nom">

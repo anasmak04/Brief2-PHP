@@ -1,4 +1,7 @@
 <?php include "../../controller/user/showuserrole.php";
+
+
+
     ?>
 
 <!DOCTYPE html>
@@ -174,34 +177,34 @@
               
 
 
-<?php
+    <?php
 
-if ($result->num_rows > 0) {
+    if ($result && $result->num_rows > 0) {
 
-    while ($row = $result->fetch_assoc()) {
-?>
-        <div class="products-row">
+        while ($row = $result->fetch_assoc()) {
+    ?>
+            <div class="products-row">
 
-            <div class="product-cell category"><span class="cell-label">Category:</span><?= $row["name"]; ?></div>
-            <div class="product-cell status-cell">
-                <span class="cell-label">Status:</span> 
-                <span class="status"><?= $row["nme"]; ?></span>
+                <div class="product-cell category"><span class="cell-label">Category:</span><?= $row["name"]; ?></div>
+                <div class="product-cell status-cell">
+                    <span class="cell-label">Status:</span> 
+                    <span class="status"><?= $row["nme"]; ?></span>
+                </div>
+                <div class="product-cell sales"><span class="cell-label">Sales:</span><?= $row["email"]; ?></div>
+                <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["roleName"]; ?></div>
+                <div class="product-cell price"><span class="cell-label">Price:</span>
+                    <a href="delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('Are you sure do you want to delete this user?')" class="delete">delete</a>
+                    <a href="update.php?id=<?= $row["id"]; ?>" class="update">update</a>
+                </div>
             </div>
-            <div class="product-cell sales"><span class="cell-label">Sales:</span><?= $row["email"]; ?></div>
-            <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["roleName"]; ?></div>
-            <div class="product-cell price"><span class="cell-label">Price:</span>
-                <a href="delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('Are you sure do you want to delete this user?')" class="delete">delete</a>
-                <a href="update.php?id=<?= $row["id"]; ?>" class="update">update</a>
-            </div>
-        </div>
-<?php
+    <?php
+        }
+    } else {
+        echo "no data";
     }
-} else {
-    echo "no data";
-}
 
 
-?>
+    ?>
             </div>
         </div>
     </div>

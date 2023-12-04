@@ -1,27 +1,7 @@
 <?php
 include __DIR__ . "../../../../../htdocs/agency/config/DbConnection.php";
-include "../../model/Blog.php";
-if (isset($_POST["submit"])) {
-    $id = $_POST["id"];
-    $nom = $_POST["nom"];
-    $status = $_POST['status'];
-    $description = $_POST['description'];
-    $id_user = $_POST['id_user'];
-    $price = $_POST['price'];
+include "../../services/Blog.php";
 
-    $sql = UpdateBlog();
-    $stmt = $connexion->prepare($sql);
+UpdateBlog($connexion);
 
-    if ($stmt) {
-        $stmt->bind_param("sssidi", $nom, $status, $description, $id_user, $price, $id);
-        if ($stmt->execute()) {
-            echo "Update done successfully!";
-            header("location: show.php"); 
-        } else {
-            echo "Error Description: " . $stmt->error;
-        }
-    } else {
-        echo "Error Description: " . $connexion->error;
-    }
-}
 ?>
