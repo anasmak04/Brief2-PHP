@@ -22,4 +22,8 @@
     }
 
 
+    function JoinUserRole(){
+        return "SELECT user.id AS id , user.firstName AS name ,  user.lastName AS nme  , user.email AS email , role.nom AS roleName
+        FROM `user` INNER JOIN role WHERE user.id = role.id";
+    }
 ?>

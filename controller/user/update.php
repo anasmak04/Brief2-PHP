@@ -13,7 +13,7 @@ if (isset($_POST["submit"])) {
     $stmt = $connexion->prepare($sql);
 
     if ($stmt) {
-        $stmt->bind_param("ssssi", $nom, $lastName, $email, $id_role, $id);
+        $stmt->bind_param("sssii", $nom, $lastName, $email, $id_role, $id);
         if ($stmt->execute()) {
             echo "Update done successfully!";
             header("location:show.php");
