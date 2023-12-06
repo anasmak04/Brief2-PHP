@@ -11,8 +11,11 @@
 <body>
     <?php include "../../controller/Product/add.php";
     ?>
+
+
+    <h2 style="text-align: center;">Insert New Product</h2>
     <form action="add.php" method="post">
-       id_team <input type="text" name="nom" placeholder="nom">
+    <input type="text" name="nom" placeholder="nom">
        <input type="number" name="id_category" placeholder="id_category">
         <input type="text" name="Description" placeholder="Description">
         <input type="text" name="status" placeholder="status">

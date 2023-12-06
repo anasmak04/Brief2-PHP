@@ -37,6 +37,74 @@
         color: white;
         border: #1d283c 1px solid;
     }
+
+    .add {
+        text-decoration: none;
+        padding-top: 5px;
+    }
+
+    .delete {
+        background-color: #101827;
+        ;
+        padding: 8px 20px;
+        color: white;
+        text-decoration: none;
+        border: #1d283c 1px solid;
+        margin: 5px;
+    }
+
+    .update {
+        background-color: #101827;
+        ;
+        padding: 8px 20px;
+        text-decoration: none;
+        color: white;
+        border: #1d283c 1px solid;
+    }
+
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #myBtn{
+        cursor: pointer;
+    }
+
 </style>
 
 <body>
@@ -196,7 +264,14 @@
                                 <span class="cell-label">Status:</span>
                                 <span class="status disabled"><?= $row["status"];  ?></span>
                             </div>
-                            <div class="product-cell sales" id="myBtn"><span class="cell-label">Sales:</span><?= $row["description"];  ?></div>
+                            <div class="product-cell sales" id="myBtn"><span class="cell-label">Sales:</span>open Description</div>
+                            <div id="myModal" class="modal">
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <p><?= $row["description"]; ?></p>
+                                </div>
+
+                            </div>
                             <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["id_user"];  ?></div>
                             <div class="product-cell price"><span class="cell-label">Price:</span><?= $row["Price"]; ?></div>
                             <div class="product-cell price"><span class="cell-label">Price:</span>
@@ -218,6 +293,35 @@
     </div>
     <!-- js link -->
     <script src="../../public/js/script.js"></script>
+    <script>
+        const modal = document.getElementById("myModal");
+
+
+        const btn = document.querySelectorAll("#myBtn");
+
+
+        const span = document.getElementsByClassName("close")[0];
+
+
+        btn.forEach((event) => {
+            event.onclick = function() {
+                modal.style.display = "block";
+            }
+        })
+
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
 </body>
 
 </html>

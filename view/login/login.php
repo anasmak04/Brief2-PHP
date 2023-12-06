@@ -13,12 +13,12 @@
 </head>
 
 <body>
-    <?php include "../../controller/login/login.php"; ?>
+   
 
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="login.php" method="post" class="sign-in-form">
+                <form action="../../controller/login/login.php" method="post" class="sign-in-form">
                     <h2 class="title">Login</h2>
                     <div class="input-field">
                         <lord-icon src="https://cdn.lordicon.com/wwpzpqta.json" trigger="in" delay="2000" style="width:60px;height:30px">

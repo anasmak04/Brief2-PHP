@@ -8,22 +8,22 @@ CREATE TABLE category(
     nom VARCHAR(50)
 )
 
-CREATE TABLE role(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nom VARCHAR(50)
-)
+    CREATE TABLE role(
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        nom VARCHAR(50)
+    )
 
 
-CREATE TABLE user (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	firstName VARCHAR(50),
-	lastName VARCHAR(50),
-	email VARCHAR(50),
-	id_role INT,
-	FOREIGN KEY (id_role) REFERENCES role(id),
-	password VARCHAR(50),
-	confirmPassword VARCHAR(50)
-)
+    CREATE TABLE user (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        firstName VARCHAR(50),
+        lastName VARCHAR(50),
+        email VARCHAR(50),
+        id_role INT,
+        FOREIGN KEY (id_role) REFERENCES role(id),
+        password VARCHAR(50),
+        confirmPassword VARCHAR(50)
+    )
 
 
 
