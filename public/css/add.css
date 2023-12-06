@@ -33,6 +33,7 @@ form {
 
 input[type="text"],
 input[type="number"],
+input[type="email"],
 input[type="price"],
 button{
   margin: 10px;

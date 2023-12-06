@@ -7,10 +7,25 @@
     <link rel="stylesheet" href="../../public/css/add.css">
     <title>Document</title>
 </head>
-
+<style>
+        select {
+            margin: 10px;
+            width: 500px;
+            height: 40px;
+            padding-left: 20px;
+            border-radius: 5px;
+            border: 1px solid var(--table-border);
+            background-color: var(--sidebar);
+            color: var(--sidebar-main-color);
+        }
+    </style>
 
 <body>
     <?php include "../../controller/user/update.php";
+
+    include __DIR__ . "../../../../../htdocs/agency/config/DbConnection.php";
+    $sql10 = "SELECT * FROM role";
+    $result10 = $connexion->query($sql10);
     ?>
 
 
@@ -33,14 +48,23 @@
 
 
 
-<form action="update.php" method="post">
-    <input type="text" name="firstName" placeholder="First Name" value="<?= htmlspecialchars($nom); ?>">
-    <input type="text" name="lastName" placeholder="Last Name" value="<?= htmlspecialchars($lastname); ?>">
-    <input type="text" name="email" placeholder="Email" value="<?= htmlspecialchars($email); ?>">
-    <input type="number" name="id_role" placeholder="Role ID" value="<?= htmlspecialchars($id_role); ?>">
-    <input type="hidden" name="id" value="<?= htmlspecialchars($_GET['id'] ?? ''); ?>">
-    <button type="submit" name="submit">Save</button>
-</form>
+    <form action="update.php" method="post">
+        <input type="text" name="firstName" placeholder="First Name" value="<?= htmlspecialchars($nom); ?>">
+        <input type="text" name="lastName" placeholder="Last Name" value="<?= htmlspecialchars($lastname); ?>">
+        <input type="text" name="email" placeholder="Email" value="<?= htmlspecialchars($email); ?>">
+        <select name="id_role" id=id_role">
+            <option value="" disabled>Select a user</option>
+            <?php
+            if ($result10->num_rows > 0) {
+                while ($row = $result10->fetch_assoc()) {
+                    echo '<option value="' . $row['id'] . '">' . $row['nom'] . '</option>';
+                }
+            }
+            ?>
+        </select>
+
+        <button type="submit" name="submit">Save</button>
+    </form>
 </body>
 
 </html>

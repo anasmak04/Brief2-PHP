@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,67 +26,67 @@
 </head>
 
 <style>
-    .add {
-        text-decoration: none;
-        padding-top: 5px;
-    }
+  .add {
+    text-decoration: none;
+    padding-top: 5px;
+  }
 
-    .delete {
-        background-color: #101827;
-        ;
-        padding: 8px 20px;
-        color: white;
-        text-decoration: none;
-        border: #1d283c 1px solid;
-        margin: 5px;
-    }
+  .delete {
+    background-color: #101827;
+    ;
+    padding: 8px 20px;
+    color: white;
+    text-decoration: none;
+    border: #1d283c 1px solid;
+    margin: 5px;
+  }
 
-    .update {
-        background-color: #101827;
-        ;
-        padding: 8px 20px;
-        text-decoration: none;
-        color: white;
-        border: #1d283c 1px solid;
-    }
+  .update {
+    background-color: #101827;
+    ;
+    padding: 8px 20px;
+    text-decoration: none;
+    color: white;
+    border: #1d283c 1px solid;
+  }
 
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        padding-top: 100px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 0.4);
-    }
-
-
-    .modal-content {
-        background-color: #fefefe;
-        margin: auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-    }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
 
 
-    .close {
-        color: #aaaaaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
 
-    .close:hover,
-    .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
+
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
 </style>
 
 
@@ -137,7 +136,15 @@
 
           </ul>
 
-          <a href="./view/register/register.php" class="btn btn-primary">Register</a>
+          <?php
+          session_start();
+
+          if (isset($_SESSION['role']) && $_SESSION['role'] === "user") {
+            echo '<a href="http://localhost/agency/view/login/login.php" class="btn btn-primary">Logout</a>';
+          } else {
+            echo '<a href="./view/register/register.php" class="btn btn-primary">Reeeegister</a>';
+          }
+          ?>
 
         </nav>
 

@@ -2,7 +2,8 @@
 
 include __DIR__ . "/../model/blog.php";
 
-function CreateBlog($connexion){
+function CreateBlog($connexion)
+{
 
     if (isset($_POST["submit"])) {
         $nom = $_POST["nom"];
@@ -11,6 +12,11 @@ function CreateBlog($connexion){
         $id_user = $_POST['id_user'];
         $price = $_POST['price'];
 
+
+        if(empty($nom) || empty($status) || empty($description) || empty($id_user) || empty($price)){
+            echo "please all fields are required";
+            exit();
+        }
         $sql = blogCreateQuery();
         $stmt = $connexion->prepare($sql);
 
@@ -34,17 +40,21 @@ function DeleteBlog($connexion)
     if (isset($_GET['id'])) {
         $blog_id = $_GET['id'];
 
+        if (empty($blog_id)) {
+            echo "please fields are required";
+            exit();
+        }
+
         $sql =  blogDeleteQuery();
 
         $stmt = $connexion->prepare($sql);
 
-        $stmt->bind_param("i", $blog_id);
+        if ($stmt) {
 
-
-        $stmt->execute();
-
-
-        $stmt->close();
+            $stmt->bind_param("i", $blog_id);
+            $stmt->execute();
+            $stmt->close();
+        }
     } else {
         echo "No product ID provided for deletion.";
     }
@@ -69,6 +79,10 @@ function UpdateBlog($connexion)
         $id_user = $_POST['id_user'];
         $price = $_POST['price'];
 
+        if (empty($id) || empty($nom) || empty($status) || empty($description) || empty($id_user) || empty($price)) {
+            echo "please all the fields are required";
+            exit();
+        }
         $sql = blogUpdateQuery();
         $stmt = $connexion->prepare($sql);
 

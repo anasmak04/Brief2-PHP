@@ -105,7 +105,12 @@ function ProductCreate($connexion){
         $price = $_POST['price'];
         $id_category = $_POST["id_category"];
         $id_team = $_POST["id_team"];
-    
+        
+
+        if (empty($nom) || empty($description) || empty($status) || empty($price) || empty($id_category) || empty($id_team)) {
+            echo "Please fill in all fields.";
+            exit();
+        }
         $sql = productCreateQuery();
     
         $stmt = $connexion->prepare($sql);

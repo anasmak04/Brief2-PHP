@@ -44,10 +44,16 @@ function DeleteUser($connexion)
 
     if (isset($_GET['id'])) {
         $id_user =  $_GET['id'];
+
+        if(empty($id_user)){
+            echo "please the fieds are required";
+            exit();
+        }
         $sql = userDeleteQuery();
 
         $stmt = $connexion->prepare($sql);
 
+        if($stmt){
         $stmt->bind_param("i", $id_user);
 
 
@@ -55,6 +61,8 @@ function DeleteUser($connexion)
 
 
         $stmt->close();
+
+        }
     } else {
         echo "No product ID provided for deletion.";
     }
@@ -75,6 +83,10 @@ function CreateUser($connexion)
         $id_role = $_POST['id_role'];
         $password = $_POST['password'];
 
+        if(empty($firstName) || empty($lastName) || empty($email) || empty($id_role) || empty($password)){
+            echo "please all fields are required";
+            exit();
+        }
         $sql = userCreateQuery();
 
         $stmt = $connexion->prepare($sql);
