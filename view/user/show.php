@@ -1,9 +1,14 @@
-<?php include "../../controller/user/showuserrole.php";
+<?php include "../../controller/user/showuserrole.php";?>
+<?php
+session_start();
 
+if ($_SESSION['role'] !== 'admin') {
+    $path = "../NotFound/unauthorized.php";
+    header("Location: " . $path);
+    exit;
+}
 
-
-    ?>
-
+?>
 <!DOCTYPE html>
 <html lang="en">
 

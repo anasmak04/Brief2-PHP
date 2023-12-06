@@ -1,6 +1,17 @@
 <?php include "../../controller/Product/search.php" ?>
 <?php include "../../controller/Product/show.php" ?>
 
+<?php
+session_start();
+
+if ($_SESSION['role'] !== 'admin') {
+    $path = "../NotFound/unauthorized.php";
+    header("Location: " . $path);
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
