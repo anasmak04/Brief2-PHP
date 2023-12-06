@@ -34,6 +34,13 @@
                         </lord-icon>
                         <input type="email" name="email" placeholder="Email" />
                     </div>
+
+<!--                     
+                    <div class="input-field">
+                        <lord-icon src="https://cdn.lordicon.com/ccrgnftl.json" trigger="in" delay="2000" style="width:60px;height:30px">
+                        </lord-icon>
+                        <input type="number" name="id_role" placeholder="id_role" />
+                    </div> -->
                     <div class="input-field">
                         <lord-icon src="https://cdn.lordicon.com/ccrgnftl.json" trigger="in" delay="2000" style="width:60px;height:30px">
                         </lord-icon>
@@ -60,9 +67,9 @@
 
 
                     </p>
-                    <button class="btn transparent" id="sign-up-btn">
-                        Register
-                    </button>
+                    <a style="padding: 10px; text-decoration:none;" href="../login/login.php" class="btn transparent" id="sign-up-btn">
+                        Login
+                        </a>
                 </div>
                 <img src="img/log.svg" class="image" alt="" />
             </div>

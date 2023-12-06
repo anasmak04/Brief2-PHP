@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
                     VALUES (?, ?, ?, ?, ?,?)";
 
         $stmt = $connexion->prepare($sql);
-
+        
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $hashedPassword2 = password_hash($confirmPwd, PASSWORD_DEFAULT);

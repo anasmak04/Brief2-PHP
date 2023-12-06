@@ -197,7 +197,7 @@
                                 <span class="cell-label">Status:</span>
                                 <span class="status disabled"><?= $row["status"];  ?></span>
                             </div>
-                            <div class="product-cell sales"><span class="cell-label">Sales:</span><?= $row["description"];  ?></div>
+                            <div class="product-cell sales" id="myBtn"><span class="cell-label">Sales:</span><?= $row["description"];  ?></div>
                             <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["id_user"];  ?></div>
                             <div class="product-cell price"><span class="cell-label">Price:</span><?= $row["Price"]; ?></div>
                             <div class="product-cell price"><span class="cell-label">Price:</span>
@@ -205,7 +205,6 @@
                                 <a href="update.php?id=<?= $row["id"] ?>" class="update">update</a>
                             </div>
                         </div>
-
                 <?php
                     }
                 } else {

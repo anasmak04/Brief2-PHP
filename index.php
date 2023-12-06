@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +26,69 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
+<style>
+    .add {
+        text-decoration: none;
+        padding-top: 5px;
+    }
 
+    .delete {
+        background-color: #101827;
+        ;
+        padding: 8px 20px;
+        color: white;
+        text-decoration: none;
+        border: #1d283c 1px solid;
+        margin: 5px;
+    }
+
+    .update {
+        background-color: #101827;
+        ;
+        padding: 8px 20px;
+        text-decoration: none;
+        color: white;
+        border: #1d283c 1px solid;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
 
 
 <body id="top">
@@ -65,7 +128,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link">Our work</a>
+              <a href="#" class="nav-link">Our blog</a>
             </li>
 
             <li class="nav-item">
@@ -127,70 +190,70 @@
       -->
 
       <section class="about" id="about">
-    <div class="container">
+        <div class="container">
 
-        <div class="about-content">
+          <div class="about-content">
 
             <h2 style="color: black !important;" class="h2 section-title">What we do</h2>
 
             <p class="section-text">
-                Each time a digital asset is purchased or sold, Sequoir donates a percentage of the fees back into the
-                development of
-                the asset through its charitable foundation.
+              Each time a digital asset is purchased or sold, Sequoir donates a percentage of the fees back into the
+              development of
+              the asset through its charitable foundation.
             </p>
 
             <div class="about-list-container">
-            <?php
-                include "./controller/Product/categoryName.php";
+              <?php
+              include "./controller/Product/categoryName.php";
 
-                if ($result->num_rows > 0) {
+              if ($result->num_rows > 0) {
 
-                  
-                    while ($row = $result->fetch_assoc()) {
-                ?>
-                        <div class="about-card">
-                            <div class="card-icon">
-                                <ion-icon name="briefcase-outline"></ion-icon>
-                            </div>
-                            <h3 class="h3 card-title"><?= $row["category_name"]; ?></h3>
-                            <p class="card-text">Name : <?= $row["product_name"]; ?></p>
-                            <p class="card-text">Description : <?= $row["product_description"]; ?></p>
-                            <p class="card-text">Price : <?= $row["product_price"]; ?></p>
-                        </div>
-                <?php
-                    }
-                } else {
-                  
-                    echo "no data";
+
+                while ($row = $result->fetch_assoc()) {
+
+              ?>
+                  <div class="about-card">
+                    <div class="card-icon">
+                      <ion-icon name="briefcase-outline"></ion-icon>
+                    </div>
+                    <h3 class="h3 card-title"><?= $row["category_name"]; ?></h3>
+                    <p class="card-text">Description : <?= $row["product_description"]; ?></p>
+                    <p class="card-text">Price : <?= $row["product_price"]; ?></p>
+                  </div>
+              <?php
                 }
-                ?>
+              } else {
+
+                echo "no data";
+              }
+              ?>
             </div>
 
             <div class="about-bottom">
-                <figure class="about-bottom-banner">
-                    <img src="./public/assets/about-banner.png" alt="about banner" class="about-banner">
-                </figure>
+              <figure class="about-bottom-banner">
+                <img src="./public/assets/about-banner.png" alt="about banner" class="about-banner">
+              </figure>
 
-                <div class="about-bottom-content">
+              <div class="about-bottom-content">
 
-                    <h2 class="h2 section-title">We’re obsessed with growth</h2>
+                <h2 class="h2 section-title">We’re obsessed with growth</h2>
 
-                    <p class="section-text">
-                        Each time a digital asset is purchased or sold, Sequoir donates a percentage of the fees back into
-                        the
-                        development of the asset through its charitable foundation.
-                    </p>
+                <p class="section-text">
+                  Each time a digital asset is purchased or sold, Sequoir donates a percentage of the fees back into
+                  the
+                  development of the asset through its charitable foundation.
+                </p>
 
-                    <button class="btn btn-secondary">Sign Up For Free</button>
+                <button class="btn btn-secondary">Sign Up For Free</button>
 
-                </div>
+              </div>
 
             </div>
 
-        </div>
+          </div>
 
-    </div>
-</section>
+        </div>
+      </section>
 
 
 
@@ -201,7 +264,7 @@
         - #FEATURES
       -->
 
-      <section class="features" id="features">
+      <!-- <section class="features" id="features">
         <div class="container">
 
           <h2 class="h2 section-title">Our team is made up of all different backgrounds from all over the world.</h2>
@@ -253,8 +316,54 @@
           </ul>
 
         </div>
-      </section>
+      </section> -->
 
+      <section class="about" id="about">
+        <div class="container">
+          <div class="about-content">
+            <h2 style="color: black !important;" class="h2 section-title">Our Blog</h2>
+            <p class="section-text">
+              Each time a digital asset is purchased or sold, Sequoir donates a percentage of the fees back into the
+              development of the asset through its charitable foundation.
+            </p>
+            <div class="about-list-container" style="max-height: 400px; overflow-y: auto;">
+              <?php
+              $sql = "SELECT * FROM `blog`";
+              $result = $connexion->query($sql);
+
+              if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+              ?>
+                  <div class="about-card" style="width: fit-content;">
+                    <div class="card-icon">
+                      <ion-icon name="book-outline"></ion-icon>
+                    </div>
+                    <h3 class="h3 card-title"><?= $row["nom"]; ?></h3>
+                    <p class="card-text" id="myBtn">click to read the blog</p>
+                    <div id="myModal" class="modal">
+                      <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p> <?= $row["description"]; ?>
+                        </p>
+                      </div>
+
+                    </div>
+
+                    <p class="card-text" style="color:blue;">Learn More</p>
+                  </div>
+              <?php
+                }
+              } else {
+                echo "no data";
+              }
+              ?>
+            </div>
+            <div class="about-bottom">
+              <!-- Rest of your content -->
+            </div>
+          </div>
+        </div>
+      </section>
 
 
 
@@ -306,7 +415,7 @@
             </figure>
           </div>
 
-          <form action="" class="contact-form">
+          <form action="https://getform.io/f/fcff189e-2369-4b47-8850-ab1c512ca864" method="post" class="contact-form">
 
             <div class="input-wrapper">
               <label for="name" class="input-label">Name *</label>
@@ -329,8 +438,7 @@
             <div class="input-wrapper">
               <label for="message" class="input-label">How can we help? *</label>
 
-              <textarea name="message" id="message" placeholder="Type Description" required
-                class="input-field"></textarea>
+              <textarea name="message" id="message" placeholder="Type Description" required class="input-field"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">Send Message</button>
@@ -345,12 +453,10 @@
   </main>
 
 
-
-
-
   <!-- 
     - #FOOTER
   -->
+
 
   <footer>
 
@@ -516,6 +622,34 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    const modal = document.getElementById("myModal");
+
+
+    const btn = document.querySelectorAll("#myBtn");
+
+
+    const span = document.getElementsByClassName("close")[0];
+
+
+    btn.forEach((event) => {
+      event.onclick = function() {
+        modal.style.display = "block";
+      }
+    })
+
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 

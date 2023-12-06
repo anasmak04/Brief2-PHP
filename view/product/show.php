@@ -7,10 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css link -->
-
     <title>Document</title>
-
     <link rel="stylesheet" href="../../public/css/sidebar.css">
 
 </head>
@@ -38,6 +35,44 @@
         text-decoration: none;
         color: white;
         border: #1d283c 1px solid;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
     }
 </style>
 
@@ -158,12 +193,12 @@
                                 <path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
                             </svg>
                         </button></div>
-                    <div class="product-cell stock">Team id<button class="sort-button">
+                    <div class="product-cell stock">Team name<button class="sort-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
                                 <path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
                             </svg>
                         </button></div>
-                    <div class="product-cell stock">Category id<button class="sort-button">
+                    <div class="product-cell stock">Category name<button class="sort-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
                                 <path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z" />
                             </svg>
@@ -193,9 +228,17 @@
                                 <span class="cell-label">Status:</span>
                                 <span class="status disabled"><?= $row["status"]; ?></span>
                             </div>
-                            <div class="product-cell sales"><span class="cell-label">Sales:</span><?= $row["Description"]; ?></div>
-                            <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["id_team"]; ?></div>
-                            <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["id_category"]; ?></div>
+                            <div class="product-cell sales" id="myBtn" style="cursor: pointer;"><span class="cell-label">Sales:</span>open description</div>
+                            <div id="myModal" class="modal">
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <p><?= $row["Description"]; ?></p>
+                                </div>
+
+                            </div>
+
+                            <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["teamNom"]; ?></div>
+                            <div class="product-cell stock"><span class="cell-label">Stock:</span><?= $row["categoryNom"]; ?></div>
                             <div class="product-cell price"><span class="cell-label">Price:</span><?= $row["price"]; ?></div>
                             <div class="product-cell price"><span class="cell-label">Price:</span>
                                 <a href="delete.php?id=<?= $row["id"]; ?>" onclick="return confirm('Are you sure do you want to delete this user?')" class="delete">delete</a>
@@ -215,6 +258,35 @@
     </div>
     <!-- js link -->
     <script src="../../public/js/script.js"></script>
+    <script>
+        const modal = document.getElementById("myModal");
+
+
+        const btn = document.querySelectorAll("#myBtn");
+
+
+        const span = document.getElementsByClassName("close")[0];
+
+
+        btn.forEach((event) => {
+            event.onclick = function() {
+                modal.style.display = "block";
+            }
+        })
+
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
 </body>
 
 </html>

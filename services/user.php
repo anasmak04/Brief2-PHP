@@ -1,6 +1,6 @@
 <?php
 
-
+include "../model/user.php";
 
 
 function UpdateUser($connexion)
@@ -13,7 +13,7 @@ function UpdateUser($connexion)
         $email = $_POST['email'];
         $id_role = $_POST['id_role'];
 
-        $sql = "UPDATE `user` SET `firstName`=?, `lastName`=?, `email`=?, `id_role`=? WHERE id = ?";
+        $sql = userUpdate();
         $stmt = $connexion->prepare($sql);
 
         if ($stmt) {
@@ -34,7 +34,7 @@ function UpdateUser($connexion)
 function GetUsers($connexion)
 {
 
-    $sql = "SELECT * FROM `user` ";
+    $sql = userGetAll();
     $result = $connexion->query($sql);
 }
 
@@ -44,7 +44,7 @@ function DeleteUser($connexion)
 
     if (isset($_GET['id'])) {
         $id_user =  $_GET['id'];
-        $sql = "DELETE FROM `user` WHERE id = ?";
+        $sql = userDelete();
 
         $stmt = $connexion->prepare($sql);
 
@@ -75,7 +75,7 @@ function CreateUser($connexion)
         $id_role = $_POST['id_role'];
         $password = $_POST['password'];
 
-        $sql = "INSERT INTO `user` (`firstName`, `lastName`, `email`, `id_role`, `password`) VALUES (?, ?, ?, ?, ?)";
+        $sql = userCreate();
 
         $stmt = $connexion->prepare($sql);
 

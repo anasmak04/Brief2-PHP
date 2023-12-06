@@ -5,26 +5,38 @@
 
 
 //function CreateCategory(){
-    return "INSERT INTO `category` (`nom`) VALUES (?)";
+    //return "INSERT INTO `category` (`nom`) VALUES (?)";
 //}
 
 //function CreateTeam(){
-    return "INSERT INTO `team` (`nom`) VALUES (?)";
+    //return "INSERT INTO `team` (`nom`) VALUES (?)";
 //}
 
 
+include "../model/product.php";
 
 function DeleteProduct($connexion){
     if (isset($_GET['id'])) {
-        $product_id = mysqli_real_escape_string($connexion,  $_GET['id']);
-        $sql = "DELETE FROM `product` WHERE id='$product_id'";
-        $result = $connexion->query($sql);
-    
+        $id_pr =  $_GET['id'];
+        $sql = productDelete();
+
+        $stmt = $connexion->prepare($sql);
+
+        $stmt->bind_param("i", $id_pr);
+
+
+        $stmt->execute();
+
+
+        $stmt->close();
+    } else {
+        echo "No product ID provided for deletion.";
     }
 }
 
 function GetAllProducts($connexion){
-    $sql = "SELECT * FROM `product`";
+    $sql = ProductTeamCategory();
+    
     $result = $connexion->query($sql);
     
     
@@ -65,7 +77,7 @@ function UpdateProduct($connexion){
         $price = $_POST['price'];
     
         
-    $sql = "UPDATE `product` SET `nom`=?, `Description`=?, `id_category`=?, `status`=?, `id_team`=?, `price`=? WHERE id = ?";
+    $sql = productUpdate();
         $stmt = $connexion->prepare($sql);
     
         if ($stmt) {
@@ -94,7 +106,7 @@ function ProductCreate($connexion){
         $id_category = $_POST["id_category"];
         $id_team = $_POST["id_team"];
     
-        $sql = "INSERT INTO `product`(`nom`, `Description`, `id_category`, `status`, `id_team`, `Price`) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = productCreate();
     
         $stmt = $connexion->prepare($sql);
     
