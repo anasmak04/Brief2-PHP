@@ -1,6 +1,6 @@
 <?php
 
-include "../model/user.php";
+include __DIR__ . "/../model/user.php";
 
 
 function UpdateUser($connexion)
@@ -13,7 +13,7 @@ function UpdateUser($connexion)
         $email = $_POST['email'];
         $id_role = $_POST['id_role'];
 
-        $sql = userUpdate();
+        $sql = userUpdateQuery();
         $stmt = $connexion->prepare($sql);
 
         if ($stmt) {
@@ -34,7 +34,7 @@ function UpdateUser($connexion)
 function GetUsers($connexion)
 {
 
-    $sql = userGetAll();
+    $sql = userGetAllQuery();
     $result = $connexion->query($sql);
 }
 
@@ -44,7 +44,7 @@ function DeleteUser($connexion)
 
     if (isset($_GET['id'])) {
         $id_user =  $_GET['id'];
-        $sql = userDelete();
+        $sql = userDeleteQuery();
 
         $stmt = $connexion->prepare($sql);
 
@@ -75,7 +75,7 @@ function CreateUser($connexion)
         $id_role = $_POST['id_role'];
         $password = $_POST['password'];
 
-        $sql = userCreate();
+        $sql = userCreateQuery();
 
         $stmt = $connexion->prepare($sql);
 
@@ -98,9 +98,7 @@ function CreateUser($connexion)
 
 function JoinUserRole($connexion)
 {
-    $sql = "SELECT user.id AS id, user.firstName AS name, user.lastName AS nme, user.email AS email, role.nom AS roleName 
-            FROM `user` 
-            INNER JOIN role ON user.id_role = role.id";
+    $sql = UserRoleQuery();
 
     $result = $connexion->query($sql);
 

@@ -1,25 +1,25 @@
 <?php
 
 
-function productDelete()
+function productDeleteQuery()
 {
     return "DELETE FROM `product` WHERE id='?' ";
 }
 
 
-function productCreate()
+function productCreateQuery()
 {
     return "INSERT INTO `product`(`nom`, `Description`, `id_category`, `status`, `id_team`, `Price`) VALUES (?, ?, ?, ?, ?, ?)";
 }
 
 
-function productUpdate()
+function productUpdateQuery()
 {
     return "UPDATE `product` SET `nom`=?, `Description`=?, `id_category`=?, `status`=?, `id_team`=?, `price`=? WHERE id = ?";
 }
 
 
-function ProductTeamCategory()
+function ProductTeamCategoryQuery()
 {
     return "SELECT product.* , team.nom AS teamNom, category.nom AS categoryNom, product.price
     FROM ((`product`

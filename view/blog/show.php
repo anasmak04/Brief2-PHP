@@ -1,5 +1,4 @@
 <?php include "../../controller/blog/show.php" ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

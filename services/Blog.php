@@ -1,8 +1,8 @@
 <?php
-include "../model/blog.php";
 
-function CreateBlog($connexion)
-{
+include __DIR__ . "/../model/blog.php";
+
+function CreateBlog($connexion){
 
     if (isset($_POST["submit"])) {
         $nom = $_POST["nom"];
@@ -11,7 +11,7 @@ function CreateBlog($connexion)
         $id_user = $_POST['id_user'];
         $price = $_POST['price'];
 
-        $sql = blogCreate();
+        $sql = blogCreateQuery();
         $stmt = $connexion->prepare($sql);
 
         if ($stmt) {
@@ -34,7 +34,7 @@ function DeleteBlog($connexion)
     if (isset($_GET['id'])) {
         $blog_id = $_GET['id'];
 
-        $sql =  blogDelete();
+        $sql =  blogDeleteQuery();
 
         $stmt = $connexion->prepare($sql);
 
@@ -52,7 +52,7 @@ function DeleteBlog($connexion)
 
 function GetAllBlogs($connexion)
 {
-    $sql = blogGetAll();
+    $sql = blogGetAllQuery();
     $result = $connexion->query($sql);
 
     return $result;
@@ -69,7 +69,7 @@ function UpdateBlog($connexion)
         $id_user = $_POST['id_user'];
         $price = $_POST['price'];
 
-        $sql = blogUpdate();
+        $sql = blogUpdateQuery();
         $stmt = $connexion->prepare($sql);
 
         if ($stmt) {

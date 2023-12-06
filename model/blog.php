@@ -1,22 +1,25 @@
 <?php
 
-function blogCreate(){
+
+function blogCreateQuery(){
     return "INSERT INTO `blog`(`nom`, `status`, `description`, `id_user`, `Price`) VALUES (?, ?, ?, ?, ?)"; 
 }
 
 
 
-function blogDelete(){
+function blogDeleteQuery(){
     return "DELETE FROM `blog` WHERE id = ?";
 }
 
 
-function blogUpdate(){
+function blogUpdateQuery(){
     return "UPDATE `blog` SET `nom`=?, `status`=?, `description`=?, `id_user`=?, `Price`=? WHERE id = ?";
 }
 
 
-function blogGetAll(){
+function blogGetAllQuery(){
     return "SELECT * FROM `blog`";
 }
+
+
 ?>

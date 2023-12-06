@@ -1,7 +1,7 @@
 <?php
 
 
-
+include __DIR__."/../model/product.php";
 
 
 //function CreateCategory(){
@@ -13,12 +13,12 @@
 //}
 
 
-include "../model/product.php";
+
 
 function DeleteProduct($connexion){
     if (isset($_GET['id'])) {
         $id_pr =  $_GET['id'];
-        $sql = productDelete();
+        $sql = productDeleteQuery();
 
         $stmt = $connexion->prepare($sql);
 
@@ -35,7 +35,7 @@ function DeleteProduct($connexion){
 }
 
 function GetAllProducts($connexion){
-    $sql = ProductTeamCategory();
+    $sql = ProductTeamCategoryQuery();
     
     $result = $connexion->query($sql);
     
@@ -77,7 +77,7 @@ function UpdateProduct($connexion){
         $price = $_POST['price'];
     
         
-    $sql = productUpdate();
+    $sql = productUpdateQuery();
         $stmt = $connexion->prepare($sql);
     
         if ($stmt) {
@@ -106,7 +106,7 @@ function ProductCreate($connexion){
         $id_category = $_POST["id_category"];
         $id_team = $_POST["id_team"];
     
-        $sql = productCreate();
+        $sql = productCreateQuery();
     
         $stmt = $connexion->prepare($sql);
     
