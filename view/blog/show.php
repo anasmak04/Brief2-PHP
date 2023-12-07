@@ -5,7 +5,7 @@ session_start();
 
 if ($_SESSION['role'] !== 'admin') {
     $path = "../NotFound/unauthorized.php";
-    header("Location: ".$path);
+    header("Location: " . $path);
     exit;
 }
 
@@ -113,10 +113,9 @@ if ($_SESSION['role'] !== 'admin') {
         cursor: pointer;
     }
 
-    #myBtn{
+    #myBtn {
         cursor: pointer;
     }
-
 </style>
 
 <body>
@@ -204,9 +203,11 @@ if ($_SESSION['role'] !== 'admin') {
             </div>
             <div class="app-content-actions">
 
-                <form action="" method="get">
-                    <input class="search-bar" name="nom" placeholder="Search..." type="text">
+            <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search_input" oninput="livesearch(); displaysearch();">
+                    <button class="btn btn-outline-success" type="submit" id="search_submit">Search</button>
                 </form>
+                
 
 
                 <div class="app-content-actions-wrapper">
@@ -335,6 +336,22 @@ if ($_SESSION['role'] !== 'admin') {
             }
         }
 
+
+        function livesearch() {
+            var searchInput = document.getElementById('search_input').value;
+            if (searchInput !== '') {
+                request = new XMLHttpRequest();
+                request.onreadystatechange = function() {
+                    if (request.readyState == 4 && request.status == 200) {
+                        document.getElementById('searchResult').innerHTML = request.responseText;
+                    } else {
+                        document.getElementById('searchResult').innerHTML = '<li>No results</li>';
+                    }
+                }
+                request.open("GET", "search.php?q=" + searchInput, true);
+                request.send();
+            }
+        }
     </script>
 
 </body>
