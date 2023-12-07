@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
             //var_dump($password);
             //var_dump($hached_password);
             //var_dump(password_verify('123', $hached_password));
-
+        
             if (password_verify($password, $password1)) {
                 $_SESSION['email'] = $email;
                 $_SESSION['role'] = $row['role_name'];

@@ -141,6 +141,7 @@
 
           if (isset($_SESSION['role']) && $_SESSION['role'] === "user") {
             echo '<a href="http://localhost/agency/view/login/login.php" class="btn btn-primary">Logout</a>';
+            session_destroy();
           } else {
             echo '<a href="./view/register/register.php" class="btn btn-primary">Reeeegister</a>';
           }

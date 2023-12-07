@@ -266,6 +266,8 @@ if ($_SESSION['role'] !== 'admin') {
                 if ($result->num_rows > 0) {
 
                     while ($row = $result->fetch_assoc()) {
+
+                        echo json_encode($row, JSON_PRETTY_PRINT);
                 ?>
                         <div class="products-row">
                             <div class="product-cell image">
@@ -332,6 +334,7 @@ if ($_SESSION['role'] !== 'admin') {
                 modal.style.display = "none";
             }
         }
+
     </script>
 
 </body>
